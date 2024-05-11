@@ -88,14 +88,59 @@ def insertion_sort(L: list[int]) -> None:
     for i in range(2,N+1): # iterates from 2 to N
         insert_at_sorting_position(L,i)
 def main(): 
+    input_path  = "input_for_insertion.txt"
+    output_path  = "output_for_insertion.txt"
     N = int(input("Enter the size of the list:(greater than 2):"))
     if N < 2: 
         print("Bad size")
         sys.exit(-1)
 
     L = get_list(N)
-    show_list(L, "Before sort:")
-    insertion_sort(L)
-    show_list(L, "After sort:")
+    try : 
+        inf_handle = open(input_path,"w")
+        for num in L:
+                print(num,file=inf_handle)
+
+        inf_handle.close()
+    except:
+        exc_name , exc_data ,exc_tb = sys.exc_info()
+        print(exc_name,exc_data)
+        sys.exit(-1)
+
+    # ---------------
+    L1  = []
+    try : 
+        inf_handle = open(input_path,"r")
+
+        for line in inf_handle:
+            line  = line.strip()
+            L1.append(int(line))
+        
+        insertion_sort(L1)
+        
+        outf_handle = open(output_path,'w')
+        for num in L1:
+                print(num,file=outf_handle)
+        
+        outf_handle.close()
+        inf_handle.close()
+    except:
+        exc_name , exc_data ,exc_tb = sys.exc_info()
+        print(exc_name,exc_data)
+        sys.exit(-1)
+
+
+
+# def main(): 
+#     N = int(input("Enter the size of the list:(greater than 2):"))
+#     if N < 2: 
+#         print("Bad size")
+#         sys.exit(-1)
+
+#     L = get_list(N)
+#     show_list(L, "Before sort:")
+#     insertion_sort(L)
+#     show_list(L, "After sort:")
+
 
 main()

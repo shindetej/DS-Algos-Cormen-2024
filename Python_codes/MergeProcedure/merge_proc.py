@@ -16,7 +16,7 @@ def merge(L: list[int] , p:int,q:int,r:int):
         @Postcondition :
             L[p...r] is sorted
         @precondition :  
-            0 <= p <= q < r < len[L]   
+            0 <= p <= q < r < len(L)   
     '''
     N1 = q-p+1 # length of L[p...q] both included
     N2 = r-q   # length of L[q+1 ... r ] both included end
@@ -62,7 +62,7 @@ def merge(L: list[int] , p:int,q:int,r:int):
 
             if j == N2 :
                 while i < N1 :
-                    L[p+k] = L2[i]
+                    L[p+k] = L1[i]
                     k=k+1
                     i=i+1
                 break

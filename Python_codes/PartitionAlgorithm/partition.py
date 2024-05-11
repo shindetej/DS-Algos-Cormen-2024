@@ -6,7 +6,7 @@
 
 import sys
 
-def partition(L:[int],p:int ,r:int)-> int:
+def partition(L:list[int],p:int ,r:int)-> int:
     """
     @Input :  
         @L :   non-empty list of integers
@@ -16,7 +16,7 @@ def partition(L:[int],p:int ,r:int)-> int:
     @Output : index q satisfying postcondition
     @precondition: 
         1) 0 <= p < r < len(L)  
-    @postcondition:
+    @postcondition:              
         1) Element L[r] moved to index q between [p,r]
         2) Rest of elements arranged such that
             i. all elements from L[p...q-1] are less than or equal to L[q]
