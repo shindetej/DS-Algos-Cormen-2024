@@ -74,12 +74,13 @@ def quick_sort(L: list[int],p : int,r : int):
     @postcondttion :
         L is sorted list in increasing order
     """
-    
+    if type(L) != list :
+        raise TypeError("L is not list")
     if p < r : 
         q = partition(L,p,r) 
         quick_sort(L,p,q-1)
         quick_sort(L,q+1,r)
-    # print(f"List  : {L} , p {p} , r {r}")
+        print(f"Q set : {L[q]} :  after q set List {L}")
     
 
 def main():
