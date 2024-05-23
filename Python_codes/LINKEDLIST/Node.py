@@ -8,10 +8,11 @@ class Node:
 
 def main():
     N1 = Node(100)
-    print("N1.__dict__:",N1.__dict__)
     N2 = Node(200)
-    print("N2.__dict__:",N2.__dict__)
 
+    N1.next = N2
+    print("N1.__dict__:",N1.__dict__)
+    print("N2.__dict__:",N2.__dict__)
 main()
 
 
