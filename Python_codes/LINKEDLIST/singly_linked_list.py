@@ -6,7 +6,7 @@
 
 class  Node:
         """
-        
+        @constructor
         """
         def __init__(self,new_data:any):
             self.data = new_data

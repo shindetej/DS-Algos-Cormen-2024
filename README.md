@@ -9,3 +9,12 @@ Algorithm : Merge procedure ---> helper function for  Merge sort
 
 Session 05 - 
 Algorithm : Partition algorithm ---> helper function for  Quick sort
+
+
+Session 08 : Merge and Quick sort
+Session 09 : 
+	Sorting and file IO
+Session 12 ,13 : Singly linked list with its algorithms  and CP
+Session 14 : Doubly linked list
+Session 15 : Singly circular linked list , __str__
+Session 16 : Binary Search Tree
