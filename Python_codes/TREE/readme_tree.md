@@ -1,3 +1,7 @@
+
+14 July and 15 July 
+Remove Node from tree
+------------------------
 07-07-2024 : 
 BST Algorithms list
 1. Add new node (last lecture):
