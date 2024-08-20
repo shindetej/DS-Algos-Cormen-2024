@@ -92,6 +92,13 @@ class bst :
         bst._postorder(self.root_node)
         print("[END]")
 
+    def inorder_successor_node(e_node:bst_node)->bst_node:
+        if e_node.right is not None:
+            run = e_node.right
+            while run.left is not None:
+                run =  run.left
+            return run
+
 if __name__ == '__main__':
     T = bst()
     # T.insert(100) # 100 inserted at root position
