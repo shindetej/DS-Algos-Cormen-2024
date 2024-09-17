@@ -1,0 +1,87 @@
+package com.tms.dsa.bst;
+
+public class BinarySearchTree implements IBST {
+
+	private BSTNode rootNode;
+	private int numberOfNodes;
+
+	public BinarySearchTree() {
+		this.rootNode = null;
+		this.numberOfNodes = 0;
+	}
+
+	@Override
+	public void insert(int data) {
+		BSTNode node = new BSTNode(data);
+		if (this.rootNode == null) {
+			this.rootNode = node;
+			this.numberOfNodes += 1;
+			return;
+		}
+		BSTNode run = this.rootNode;
+		while (true) {
+			if (data <= run.data) {
+				if (run.left == null) {
+					run.left = node;
+					run.left.parent = run;
+					break; // breaking while loop
+				} else {
+					// run.left not null
+					run = run.left;
+				}
+			} else {
+				// data > run.data
+				if (run.right == null) {
+					run.right = node;
+					run.right.parent = run;
+					break; // breaking while loop
+				} else {
+					// run.right not null
+					run = run.right;
+				}
+			}
+			this.numberOfNodes += 1;
+		}
+	}
+
+	@Override
+	public boolean searchNode(int search_data) {
+		BSTNode run = this.rootNode;
+		while (true) {
+			if (run.data == search_data) {
+				return true;
+			} else if (search_data <= run.data) {
+				// traverse to left
+				if (run.left != null) {
+					run = run.left;
+				} else {
+					System.out.println("No content found At Right Subtree");
+					return false;
+				}
+
+			} else if (search_data > run.data) {
+				if (run.right != null) {
+					run = run.right;
+				}else {
+					System.out.println("No content found At Left Subtree");
+					return false;
+				}
+			}
+		}
+	}
+
+	private void inOrder(BSTNode node) {
+		inOrder(node.left);
+		System.out.println(" -> "+ node.data);
+		inOrder(node.right);
+	}
+	
+	@Override
+	public void inOrderTraversal() {
+		// TODO Auto-generated method stub
+		System.out.println("[START] -> ");
+		inOrder(this.rootNode);
+		System.out.println("[END] ");
+	}
+
+}

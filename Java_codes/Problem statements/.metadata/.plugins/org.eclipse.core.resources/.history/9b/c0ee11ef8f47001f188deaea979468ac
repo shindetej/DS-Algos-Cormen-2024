@@ -1,0 +1,77 @@
+package com.lamdas.demo;
+
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class HashmapP2 {
+
+    public static void main(String[] args) {
+        // Input data
+        List<Map<String, String>> inputData = new ArrayList<>();
+        inputData.add(createMap("model", "XB1", "edition", "Original", "deviceType", "Consoles", "accessoryId", "2", "accessory", "hdmi cable"));
+        inputData.add(createMap("model", "XB1", "edition", "Original", "deviceType", "Consoles", "accessoryId", "3", "accessory", "power cable"));
+        inputData.add(createMap("model", "XB1", "edition", "Original", "deviceType", "Consoles", "accessoryId", "4", "accessory", "power brick"));
+        inputData.add(createMap("model", "XB1", "edition", "Original", "deviceType", "Consoles", "accessoryId", "6", "accessory", "battery cover"));
+        inputData.add(createMap("model", "Gamecube", "edition", "Wavebird", "deviceType", "Controller", "accessoryId", "6", "accessory", "battery cover"));
+        inputData.add(createMap("model", "XB1", "edition", "S", "deviceType", "Consoles", "accessoryId", "1", "accessory", "controller"));
+
+        // Process the input data to group by model, edition, and device type
+        Map<String, Map<String, Map<String, List<Map<String, String>>>>> groupedData = new HashMap<>();
+
+        for (Map<String, String> item : inputData) {
+            String model = item.get("model");
+            String edition = item.get("edition");
+            String deviceType = item.get("deviceType");
+
+            groupedData
+                .computeIfAbsent(model, k -> new HashMap<>())
+                .computeIfAbsent(edition, k -> new HashMap<>())
+                .computeIfAbsent(deviceType, k -> new ArrayList<>())
+                .add(item);
+        }
+
+        // Convert the grouped data to the desired output format
+        List<Map<String, Object>> outputData = new ArrayList<>();
+
+        for (Map.Entry<String, Map<String, Map<String, List<Map<String, String>>>>> modelEntry : groupedData.entrySet()) {
+            for (Map.Entry<String, Map<String, List<Map<String, String>>>> editionEntry : modelEntry.getValue().entrySet()) {
+                for (Map.Entry<String, List<Map<String, String>>> deviceTypeEntry : editionEntry.getValue().entrySet()) {
+                    Map<String, Object> outputItem = new HashMap<>();
+                    outputItem.put("model", modelEntry.getKey());
+                    outputItem.put("edition", editionEntry.getKey());
+                    outputItem.put("deviceType", deviceTypeEntry.getKey());
+
+                    List<Map<String, Object>> accessoriesList = deviceTypeEntry.getValue().stream().map(accessory -> {
+                        Map<String, Object> accessoryMap = new HashMap<>();
+                        accessoryMap.put("accessoryId", Integer.parseInt(accessory.get("accessoryId")));
+                        accessoryMap.put("accessory", accessory.get("accessory"));
+                        return accessoryMap;
+                    }).collect(Collectors.toList());
+
+                    outputItem.put("accessoriesList", accessoriesList);
+                    outputData.add(outputItem);
+                }
+            }
+        }
+
+        // Print the output as JSON
+        ObjectMapper mapper = new ObjectMapper();
+        ArrayNode outputArrayNode = mapper.createArrayNode();
+        for (Map<String, Object> outputItem : outputData) {
+            ObjectNode objectNode = mapper.convertValue(outputItem, ObjectNode.class);
+            outputArrayNode.add(objectNode);
+        }
+
+        System.out.println(outputArrayNode.toPrettyString());
+    }
+
+    private static Map<String, String> createMap(String... keyValues) {
+        Map<String, String> map = new HashMap<>();
+        for (int i = 0; i < keyValues.length; i += 2) {
+            map.put(keyValues[i], keyValues[i + 1]);
+        }
+        return map;
+    }
+}
+

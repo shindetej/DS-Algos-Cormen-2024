@@ -1,0 +1,16 @@
+package com.tms.dsa.linkedlist;
+
+public class TestMain {
+
+	public static void main(String[] args) {
+		SinglyLinkedList list = new SinglyLinkedList();
+		
+		list.insertAtStart(10);
+		list.insertAtStart(9);
+		list.insertAtEnd(12);
+		list.insertAtEnd(20);
+		list.insertAfter(12,15);
+		list.insertAfter(15,13);
+	}
+
+}

@@ -1,0 +1,123 @@
+package com.tms.dsa.linkedlist;
+
+import java.util.NoSuchElementException;
+
+class Node {
+	private Integer data;
+	private Node next;
+
+	public Node(int data) {
+		this.data = data;
+		this.next = null;
+	}
+
+	public int getData() {
+		return data;
+	}
+
+	public void setData(int data) {
+		this.data = data;
+	}
+
+	public Node getNext() {
+		return next;
+	}
+
+	public void setNext(Node node) {
+		this.next = node;
+	}
+	
+
+	public String toString() {
+		return data + " <-> ";
+	}
+}
+
+
+
+
+public class SinglyLinkedList {
+	Node headNode;
+
+	public SinglyLinkedList() {
+		this.headNode = new Node(-1);
+	}
+
+	public boolean insertAtStart(int data) {
+		Node newNode = new Node(data);
+		newNode.setNext(this.headNode);
+		this.headNode.setNext(newNode);
+		return true;
+	}
+
+	public void insertAtEnd(int data) {
+
+	}
+
+	public void insertAfter(int existingData, int data) {
+
+	}
+
+	public void inserBefore(int existingData, int data) {
+
+	}
+
+	public int getStart() {
+		 if (this.headNode.getNext() != null)
+		        return this.headNode.getNext().getData();
+		    else {
+		        throw new NoSuchElementException("List is empty, node not found!");
+		    }
+	}
+
+	public int getEnd(){
+		return 0;
+		
+	}
+	
+	public int popStart(){
+		return 0;
+	}
+	
+	public int popEnd(){
+		return 0;
+	}
+	
+	public void removeStart() {
+	
+	}
+	
+	public void removeEnd() {
+	
+	}
+	public void removeData(int dataToRemove) {
+	}
+	
+	public int find() {
+		return 0;
+	}
+	
+	public int length() {
+		return 0;
+	}
+	
+	
+	public SinglyLinkedList concat(SinglyLinkedList other){
+		return null;
+	}
+	 
+	public SinglyLinkedList merge(SinglyLinkedList other) {
+		return null;
+	}
+	
+ 	public SinglyLinkedList getReversedList() {
+		return null;
+	}
+	
+	public int reverseList(int dataToRemove) {
+		return 0;
+	}
+	
+	
+	
+}

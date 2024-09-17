@@ -1,0 +1,48 @@
+package com.tms.dsa.sorting;
+
+public class mergeTwoArrays {
+
+	public static void main(String args[]) {
+		int pArray[] = {10,40,89,100};
+		int qArray[] = {55,35,80,123};
+		
+		mergeSortedArray(pArray,qArray);
+	}
+
+	private static void mergeSortedArray(int[] pArray, int[] qArray) {
+		
+		int i=0,j=0,k= 0 ;
+		int[] resultArray = new int[pArray.length+qArray.length];
+		
+		while(true) {
+			if(pArray[i] < qArray[j] ) {
+				resultArray[k] = pArray[i];
+				
+				i++;
+				k++;
+				if(i == pArray.length) {
+					while(j < qArray.length) {
+						resultArray[k] = qArray[j];
+						k++;
+						j++;
+					}
+					break; // outer while break
+				}
+			}
+			else {
+				resultArray[k] = qArray[j];
+				k++;
+				j++;
+				if(j == qArray.length) {
+					while(i < pArray.length) {
+						resultArray[k] = pArray[i];
+						i++;
+						k++;
+					}
+					break;
+				}
+			}
+		}
+		
+	}
+}

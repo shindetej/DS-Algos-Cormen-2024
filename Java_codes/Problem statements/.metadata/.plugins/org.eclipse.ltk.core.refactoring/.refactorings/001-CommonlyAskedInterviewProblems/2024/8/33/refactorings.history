@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;sumOfDigitsUsingRecursion.java&apos; to &apos;001-CommonlyAskedInterviewProblems/src/tejas.practice.recursion&apos;&#x0A;- Original project: &apos;001-CommonlyAskedInterviewProblems&apos;&#x0A;- Destination element: &apos;001-CommonlyAskedInterviewProblems/src/tejas.practice.recursion&apos;&#x0A;- Original element: &apos;tejas.practice.other.sumOfDigitsUsingRecursion.java&apos;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;tejas.practice.recursion" element1="/src&lt;tejas.practice.other{sumOfDigitsUsingRecursion.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1723749976476" units="1" version="1.0"/>
+</session>

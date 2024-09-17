@@ -1,0 +1,44 @@
+package com.tms.dsa.sorting;
+
+import java.util.Random;
+
+public class QuickSort {
+
+	public static void main(String[] args) {
+
+		int[] arr = generateNumberArray(10);
+
+	}
+
+	public static int[] generateNumberArray(int size) {
+		int[] arr = new int[size];
+		Random r = new Random();
+		for (int i = 0; i < size; ++i) {
+			arr[i] = r.nextInt(100);
+		}
+		return arr;
+	}
+
+	private static int partitionProc(int[] arr, int p, int r) {
+		int i = p - 1; // index
+		int pivot = arr[r]; // get pivot element
+		int temp ;
+		for (int j = p; j < r; j++) {
+			if (arr[j] < pivot) {
+				// increment ith
+				i++;
+				// swap ith number with jth number
+				temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+		}
+		// after loop swap ith with pivot and return pivot index
+		temp = arr[i];
+		arr[i] = arr[r];
+		arr[r] = temp; 
+		++i;
+		return i;
+	}
+
+}

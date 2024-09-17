@@ -1,0 +1,37 @@
+package com.tms.dsa.bst;
+
+import java.util.Random;
+
+public class TestBST {
+
+	public static void main(String[] args) {
+		int size = 8 ;
+		int[] arrayInput = new int[] {39,12,33,22,58,50,40,20,21};
+//		int[] arrayInput = new int[size];
+//		Random r = new Random();
+//		for(int i = 0;i < size;i++) {
+//			arrayInput[i] = r.nextInt(50)+10;
+//		}
+		System.out.println("----------- INSERING DATA --------");
+
+		IBST bst =  new BinarySearchTree();
+		for(int data : arrayInput) {
+			System.out.println("ADDING DATA : "+ data);
+			bst.insert(data);
+		}
+		System.out.println("----------- IN ORDER TRAVERSAL --------");
+		bst.inOrderTraversal();
+		
+		
+		System.out.println("----------- SEARCH NODE --------");
+
+		for(int data : arrayInput) {
+			System.out.println("SEARCH DATA : "+ data + " :: IS FOUND : "+ bst.searchNode(data));
+		}
+		
+		System.out.println("SEARCH DATA : 15 :: IS FOUND : "+ bst.searchNode(15));
+		System.out.println("SEARCH DATA : 89 :: IS FOUND : "+ bst.searchNode(89));
+		
+	}
+
+}
