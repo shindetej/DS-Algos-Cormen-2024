@@ -27,15 +27,19 @@ public class ArrayCodeE1 {
 	}
 
 	private static int[] getReverseArray(int[] input) {
-		int[] reversed = null;
-
-		if (input != null) {
-			reversed = new int[input.length];
-			for (int k = 0; k <= input.length / 2; k++) {
-				reversed[k] = input[input.length - 1 - k];
-				reversed[input.length - 1 - k] = input[k];
-			}
+		if (input == null) {
+			return null;
 		}
+		int[] reversed = new int[input.length];
+		for (int k = 0; k < input.length / 2; k++) {
+			reversed[k] = input[input.length - 1 - k];
+			reversed[input.length - 1 - k] = input[k];
+		}
+		// If the array has an odd length
+		if (input.length % 2 != 0) {
+			reversed[input.length / 2] = input[input.length / 2];
+		}
+
 		return reversed;
 	}
 }
