@@ -15,6 +15,10 @@ public class ArrayCodeE1 {
 		System.out.println(Arrays.toString(intArray));
 		System.out.println("Array Reversed : ");
 		System.out.println(Arrays.toString(getReverseArray(intArray)));
+		
+		System.out.println("MAX Number In Array : "+ getMax(intArray));
+		System.out.println("MIN Number In Array : "+ getMin(intArray));
+		System.out.println("Sum Of Numbers In Array : "+ sumOfArray(intArray));
 	}
 
 	private static int[] getIntegerArray(int size) {
@@ -41,5 +45,30 @@ public class ArrayCodeE1 {
 		}
 
 		return reversed;
+	}
+
+	private static int sumOfArray(int[] input) {
+		int sum = 0;
+		for (int i : input) {
+			sum += i;
+		}
+		return sum;
+	}
+
+	private static int getMax(int[] input) {
+		int max = 0;
+		for (int i : input) {
+			if (i > max)
+				max = i;
+		}
+		return max;
+	}
+	private static int getMin(int[] input) {
+		int min = Integer.MAX_VALUE;
+		for (int i : input) {
+			if (i < min)
+				min = i;
+		}
+		return min;
 	}
 }
