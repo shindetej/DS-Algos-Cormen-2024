@@ -1,0 +1,20 @@
+package tejas.practice.recursion;
+
+import java.util.Scanner;
+
+public class sumOfDigitsUsingRecursion {
+	public static void main(String[] args) {
+		System.out.println("ENTER NUMBER (POSITIVE):");
+		Scanner sc = new Scanner(System.in);
+		int num = sc.nextInt();
+		System.out.println("SUM OF DIGIT " + num + " :::::> " + sumOfDigitsInNumber(num));
+	}
+
+	private static int sumOfDigitsInNumber(int num) {
+		if (num == 0)
+			return 0;
+
+		return num % 10 + sumOfDigitsInNumber(num / 10);
+	}
+
+}

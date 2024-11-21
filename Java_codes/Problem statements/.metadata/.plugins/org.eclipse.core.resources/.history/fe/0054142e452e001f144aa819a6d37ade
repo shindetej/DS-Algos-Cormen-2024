@@ -1,0 +1,142 @@
+package com.tms.dsa.linkedlist;
+
+class Node {
+	public Integer data;
+	public Node next;
+
+	public Node(int data) {
+		this.data = data;
+		this.next = null;
+	}
+//
+//	public int getData() {
+//		return data;
+//	}
+//
+//	public void setData(int data) {
+//		this.data = data;
+//	}
+//
+//	public Node getNext() {
+//		return next;
+//	}
+//
+//	public void setNext(Node node) {
+//		this.next = node;
+//	}
+//	
+//
+//	public String toString() {
+//		return data + " <-> ";
+//	}
+}
+
+public class SinglyLinkedList {
+	Node headNode;
+
+	public SinglyLinkedList() {
+		this.headNode = new Node(-1);
+	}
+
+	public boolean insertAtStart(int data) {
+		Node newNode = new Node(data);
+		newNode.next = this.headNode.next;
+		this.headNode.next = newNode;
+		return true;
+	}
+
+	public void insertAtEnd(int data) {
+		Node newNode = new Node(data);
+		Node traversingNode = this.headNode;
+		while (traversingNode.next != null) {
+			traversingNode = traversingNode.next;
+		}
+		newNode.next = traversingNode.next;
+		traversingNode.next = newNode;
+
+	}
+
+	public void insertAfter(int existingData, int data) {
+		Node run = this.headNode.next;
+		while (run != null) {
+			if (run.data == existingData)
+				break;
+			run = run.next;
+		}
+		if (run == null)
+			throw new DataNotFoundException("existing data not found!");
+		Node newNode = new Node(data);
+		newNode.next = run.next;
+		run.next = newNode;
+
+	}
+
+	public void inserBefore(int existingData, int data) {
+		Node run = this.headNode;
+		while (run.next != null) {
+			if (run.next.data == existingData) {
+				break;
+			}
+			run = run.next;
+		}
+		if(run == null)
+			throw new DataNotFoundException("existing data not found!");
+		Node newNode = new Node(data);
+		newNode.next =  run.next;
+		run.next =  newNode;
+			
+	}
+
+	public int getStart() {
+		return 0;
+	}
+
+	public int getEnd() {
+		return 0;
+
+	}
+
+	public int popStart() {
+		return 0;
+	}
+
+	public int popEnd() {
+		return 0;
+	}
+
+	public void removeStart() {
+
+	}
+
+	public void removeEnd() {
+
+	}
+
+	public void removeData(int dataToRemove) {
+	}
+
+	public int find() {
+		return 0;
+	}
+
+	public int length() {
+		return 0;
+	}
+
+	public SinglyLinkedList concat(SinglyLinkedList other) {
+		return null;
+	}
+
+	public SinglyLinkedList merge(SinglyLinkedList other) {
+		return null;
+	}
+
+	public SinglyLinkedList getReversedList() {
+		return null;
+	}
+
+	public int reverseList(int dataToRemove) {
+		return 0;
+	}
+
+}

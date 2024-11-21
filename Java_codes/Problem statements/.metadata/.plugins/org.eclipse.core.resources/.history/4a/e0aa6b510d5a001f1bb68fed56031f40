@@ -1,0 +1,10 @@
+package com.tms.dsa.sorting;
+
+public class mergeSort {
+
+	public static void main(String[] args) {
+		System.out.println("MERGE SORT IMPLEMENATION");
+
+	}
+
+}

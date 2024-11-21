@@ -1,0 +1,33 @@
+package com.tms.dsa.bst;
+
+public class BinarySearchTree implements IBST{
+
+	private BSTNode rootNode;
+	private int numberOfNodes;
+	
+	public BinarySearchTree(){
+		this.rootNode = null;
+		this.numberOfNodes = 0;
+		
+	}
+	@Override
+	public void insert(int data) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean searchNode(int search_data) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void inOrderTraversal() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+}

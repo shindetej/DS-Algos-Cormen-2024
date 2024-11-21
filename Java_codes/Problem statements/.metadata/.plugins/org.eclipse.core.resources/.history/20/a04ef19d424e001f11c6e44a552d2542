@@ -1,0 +1,5 @@
+package com.tms.dsa.bst;
+
+public interface IBST {
+
+}

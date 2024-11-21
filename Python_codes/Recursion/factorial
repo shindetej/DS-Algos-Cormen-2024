@@ -1,0 +1,17 @@
+"""
+Precondition :  enter any positive integer number
+Post condition :  return factorial for that number
+                         : if num <= 1     return 1
+factorial(num)  :        : if num >  1     return num* factorial(num)
+                                    
+"""                 
+import sys
+def factorial(num : int):
+   return num * factorial(num-1) if num > 1 else 1 
+
+def main():
+   print(f"Printing factorial(5) : {factorial(5)}")
+   print(f"Printing factorial(6) : {factorial(6)}")
+   sys.exit(0)
+
+main()
